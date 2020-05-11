@@ -21,7 +21,8 @@
         },
         amount: {
           type: Number,
-          required: true
+          required: true,
+          default: 0
         },
         flwKey: {
           type: String,
@@ -65,13 +66,13 @@
       created() {
         const script = document.createElement("script");
         script.src = !this.isProduction
-          ? "https://checkout.flutterwave.com/v3.js"
-          : "https://ravemodal-dev.herokuapp.com/v3.js";
+          ? "https://ravemodal-dev.herokuapp.com/v3.js"
+          : "https://checkout.flutterwave.com/v3.js";
         document.getElementsByTagName("head")[0].appendChild(script);
       },
       methods: {
         makePayment() {
-          //window.FlutterwaveCheckout
+          console.log(window);
           window.FlutterwaveCheckout({
               public_key: this.flwKey,
               tx_ref: this.reference,
