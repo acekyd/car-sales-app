@@ -23,7 +23,8 @@
             <v-card-actions class="justify-center">
               <flutterwave
                 :isProduction="isProduction"
-                :email="email"
+                :name="customer.name"
+                :email="customer.email"
                 :amount="car.price"
                 :reference="reference"
                 :flw-key="flwKey"
@@ -31,8 +32,8 @@
                 :close="close"
                 :currency="currency"
                 :country="country"
-                :custom_title="custom.title"
-                :custom_logo="custom.logo"
+                :custom_title="customizations.title"
+                :custom_logo="customizations.logo"
                 :payment_method="paymentMethod"
               />
             </v-card-actions>
@@ -62,12 +63,16 @@ const flwKey = process.env.VUE_APP_FLUTTERWAVE_TEST_KEY;
           carResponse: [],
           isProduction: false,
           flwKey: flwKey,
-          email: "ugwuraphael@gmail.com",
           amount: "",
           currency: "NGN",
           country: "NG",
-          custom: {
+          customer: {
+            name: "Ugwu Raphael",
+            email: "ugwuraphael@gmail.com"
+          },
+          customizations: {
             title: "Car Shop",
+            description: "Payment for items in cart",
           },
           paymentMethod: ""
         };

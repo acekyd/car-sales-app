@@ -72,7 +72,6 @@
       },
       methods: {
         makePayment() {
-          console.log(window);
           window.FlutterwaveCheckout({
               public_key: this.flwKey,
               tx_ref: this.reference,
@@ -80,6 +79,7 @@
               currency: this.currency,
               payment_options: this.payment_method,
               customer: {
+                name: this.name,
                 email: this.email,
               },
               callback: response => this.callback(response),
