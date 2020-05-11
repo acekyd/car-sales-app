@@ -31,7 +31,9 @@
         callback: {
           type: Function,
           required: true,
-          default: () => {}
+          default: () => {
+             console.log('Payment made, verify payment');
+          }
         },
         close: {
           type: Function,
